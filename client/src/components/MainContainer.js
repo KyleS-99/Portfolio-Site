@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
 
 import Navbar from './Navbar';
 import Home from './Home';
+import Projects from './Projects';
+import Parallax from './Parallax';
 
 class MainContainer extends Component {
-    state = {  }
+    state = {
+        currentView: '/',
+        order: ['/', '/projects', '/skills', '/contact']
+    }
+    handleScroll = (e) => {
+        console.log(e);
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
+    }
     render() {
         return (
-            <React.Fragment>
-                <Navbar />
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                </Switch>
-            </React.Fragment>
+            <div style={{overflow: 'hidden'}}>
+            <Parallax />
+            <Navbar />
+            <Home />
+            <Projects />
+            </div>
         );
     }
 }

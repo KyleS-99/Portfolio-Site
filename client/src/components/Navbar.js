@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 
 const Header = styled.header`
     box-shadow: rgba(0, 0, 0, 0.01) 0px 7px 19px 0px;
@@ -10,15 +9,17 @@ const Header = styled.header`
     right: 0px;
     z-index: 10;
     border-bottom: 1px solid rgb(238, 238, 238);
-    height: 56px;
+    background: #fff;
 `;
 
 const Nav = styled.nav`
     width: 80%;
+    max-width: 1200px;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: #fff;
 
     & * {
         cursor: pointer;
@@ -29,11 +30,61 @@ const Nav = styled.nav`
 
 const Logo = styled.h1`
     font-size: 1.5rem;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 2px;
+        background: linear-gradient(90deg, rgb(146, 254, 157) 0px, rgb(0, 201, 255));
+        transition: width .3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
 `;
 
 const Section = styled.p`
     font-size: 1.2rem;
     margin: 0 20px;
+    position: relative;
+    top: 5px;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 2px;
+        background: linear-gradient(90deg, rgb(146, 254, 157) 0px, rgb(0, 201, 255));
+        transition: width .3s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+`;
+
+const jump = keyframes`
+25% {
+transform: translateY(-8px);
+transform: translateY(-8px); }
+50% {
+transform: translateY(0px);
+transform: translateY(0px); }
+75% {
+transform: translateY(-4px);
+transform: translateY(-4px); }
+100% {
+transform: translateY(0px);
+transform: translateY(0px); }
+`;
+
+const GithubImg = styled.img`
+    &:hover {
+        animation: ${jump} 1s infinite;
+    }
 `;
 
 class Navbar extends Component {
@@ -45,19 +96,23 @@ class Navbar extends Component {
             <React.Fragment>
                 <Header>
                     <Nav>
-                        <Link to="/"><Logo>kyle stauch</Logo></Link>
+                        <Logo>kyle stauch</Logo>
                         <div style={{ display: 'flex', flexDirection: 'row' }}>
                             <Section>
-                                <Link to="/projects">projects</Link>
+                                projects
                             </Section>
 
                             <Section>
-                                <Link to="/skills">skills</Link>
+                                skills
                             </Section>
 
                             <Section>
-                                <Link to="/contact">contact</Link>
+                                contact
                             </Section>
+                            
+                            <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
+                                <GithubImg src={window.location.origin + '/img/github.png'} alt="Github" />
+                            </a>
                         </div>
                     </Nav>
                 </Header>
