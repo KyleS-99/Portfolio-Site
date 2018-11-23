@@ -14,15 +14,15 @@ class MainContainer extends Component {
         console.log(e);
     }
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, { passive: true });
+        // window.addEventListener('scroll', this.handleScroll, { passive: true });
     }
     render() {
         return (
             <div style={{overflow: 'hidden'}}>
-            <Parallax />
-            <Navbar />
-            <Home />
-            <Projects />
+                <Parallax />
+                <Navbar />
+                <Home />
+                <Projects />
             </div>
         );
     }
