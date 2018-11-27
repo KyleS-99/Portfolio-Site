@@ -5,6 +5,7 @@ const Title = styled.h1`
     font-family: 'Reem Kufi', sans-serif;
     font-size: 4rem;
     text-align: center;
+    margin-bottom: 5rem;
 
     @media (max-width: 425px) {
         font-size: 3rem;

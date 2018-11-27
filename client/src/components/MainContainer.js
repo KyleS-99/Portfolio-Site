@@ -19,7 +19,7 @@ class MainContainer extends Component {
     render() {
         return (
             <div style={{overflow: 'hidden'}}>
-                <Parallax />
+                { /* <Parallax /> */}
                 <Navbar />
                 <Home />
                 <Projects />

@@ -39,7 +39,7 @@ const TagLine = styled.h2`
 
 const Home = () => (
     <HomeContainer>
-        <Intro>hello, i'm Kyle!</Intro>
+        <Intro>hello, i'm kyle!</Intro>
         <TagLine>full stack developer | open-source enthusiast | night owl</TagLine>
         <ClickMe />
     </HomeContainer>
