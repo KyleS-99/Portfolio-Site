@@ -181,11 +181,11 @@ const Projects = () => (
 
                 <ProjectItem>
                     <GIFContainer>
-                        <GIF src={window.location.origin + '/img/real-time-racer.gif'} alt="Real Time Racer" />
+                        <GIF src={window.location.origin + '/img/real-time-racer.gif'} alt="Dev Connector" />
                     </GIFContainer>
 
                     <Info>
-                        <Title>real time racer</Title>
+                        <Title>dev connector</Title>
                         <Description>Web app that allows users to race against others, and become more proficient at typing.</Description>
                         <UL>
                             <li>Front end built with react, react context-api, redux, styled-components, and websockets</li>
@@ -193,7 +193,7 @@ const Projects = () => (
                         </UL>
                         <ButtonContainer>
                             <Button 
-                                href="https://real-time-racer.herokuapp.com" 
+                                href="https://powerful-wave-23158.herokuapp.com" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                             >
@@ -207,7 +207,7 @@ const Projects = () => (
                             </Button>
 
                             <Button 
-                                href="https://github.com/KyleS-99/Real-Time-Racer" 
+                                href="https://github.com/KyleS-99/dev_connector" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                             >
