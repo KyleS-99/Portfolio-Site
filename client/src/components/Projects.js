@@ -169,8 +169,8 @@ const Projects = () => (
                         <Title>real time racer</Title>
                         <Description>Web app that allows users to race against others, and become more proficient at typing.</Description>
                         <UL>
-                            <li>Front end built with React, React-Router-DOM, React-Context-API, Redux, Styled-Components, Axios, and WebSockets</li>
-                            <li>Back end built with NodeJS, Express, Passport, MongoDB, JSON Web Tokens, and OAuth</li>
+                            <li>Front end built with <strong>React</strong>, <strong>React-Router-DOM</strong>, <strong>React-Context-API</strong>, <strong>Redux</strong>, <strong>Styled-Components</strong>, <strong>Axios</strong>, and <strong>WebSockets</strong></li>
+                            <li>Back end built with <strong>NodeJS</strong>, <strong>Express</strong>, <strong>Passport</strong>, <strong>MongoDB</strong>, <strong>JSON Web Tokens</strong>, and <strong>OAuth</strong></li>
                         </UL>
                         <ButtonContainer>
                             <Button 
@@ -215,8 +215,8 @@ const Projects = () => (
                         <Title>dev connector</Title>
                         <Description>Web app that allows developers to come together and discuss different topics, such as web dev tools and frameworks/libraries.</Description>
                         <UL>
-                            <li>Front end built with React, Bootstrap, Redux, Sass, Axios, GitHub's API, and JWTs to request private resources</li>
-                            <li>Back end built with NodeJS, Express, Passport, MongoDB, JSON Web Tokens, and GitHub's API to request users account information and repositories</li>
+                            <li>Front end built with <strong>React</strong>, <strong>Bootstrap</strong>, <strong>Redux</strong>, <strong>Sass</strong>, <strong>Axios</strong>, <strong>GitHub's API</strong>, and <strong>JWTs</strong> to request private resources</li>
+                            <li>Back end built with <strong>NodeJS</strong>, <strong>Express</strong>, <strong>Passport</strong>, <strong>MongoDB</strong>, <strong>JSON Web Tokens</strong>, and <strong>GitHub's API</strong> to request users account information and repositories</li>
                         </UL>
                         <ButtonContainer>
                             <Button 
