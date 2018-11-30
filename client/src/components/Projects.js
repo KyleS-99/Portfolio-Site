@@ -37,6 +37,20 @@ const ProjectItem = styled.div`
         transform: translateY(-3px);
         box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.08);
     }
+
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        padding: 20px;
+
+        & > div {
+            width: 100%;
+        }
+
+        & > div + div {
+            margin: 2rem 0;
+        }
+    }
 `;
 
 const GIFContainer = styled.div`
@@ -86,9 +100,22 @@ const UL = styled.ul`
 const ButtonContainer = styled.div`
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 2rem;
+    margin-top: 11%;
+
+    @media (max-width: 375px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & > a + a {
+            margin-top: 1.5rem;
+        }
+
+        & > a {
+            width: 80%;
+        }
+    }
 `;
 
 const Button = styled.a`
@@ -142,7 +169,7 @@ const Projects = () => (
                         <Title>real time racer</Title>
                         <Description>Web app that allows users to race against others, and become more proficient at typing.</Description>
                         <UL>
-                            <li>Front end built with react, react context-api, redux, styled-components, and websockets</li>
+                            <li>Front end built with React, React-Router-DOM, React-Context-API, Redux, Styled-Components, Axios, and WebSockets</li>
                             <li>Back end built with NodeJS, Express, Passport, MongoDB, JSON Web Tokens, and OAuth</li>
                         </UL>
                         <ButtonContainer>
@@ -186,10 +213,10 @@ const Projects = () => (
 
                     <Info>
                         <Title>dev connector</Title>
-                        <Description>Web app that allows users to race against others, and become more proficient at typing.</Description>
+                        <Description>Web app that allows developers to come together and discuss different topics, such as web dev tools and frameworks/libraries.</Description>
                         <UL>
-                            <li>Front end built with react, react context-api, redux, styled-components, and websockets</li>
-                            <li>Back end built with NodeJS, Express, Passport, MongoDB, JSON Web Tokens, and OAuth</li>
+                            <li>Front end built with React, Bootstrap, Redux, Sass, Axios, GitHub's API, and JWTs to request private resources</li>
+                            <li>Back end built with NodeJS, Express, Passport, MongoDB, JSON Web Tokens, and GitHub's API to request users account information and repositories</li>
                         </UL>
                         <ButtonContainer>
                             <Button 
