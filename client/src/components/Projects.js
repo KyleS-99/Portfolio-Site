@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SectionTitle from './styled/SectionTitle';
+import ClickMe from './styled/ClickMe';
 
 const ProjectsContainer = styled.div`
     width: 100%;
     min-height: 100vh;
-    margin-bottom: 5rem;
+    padding-bottom: 10rem;
+    position: relative;
 `;
 
 const ProjectContainer = styled.div`
@@ -259,6 +261,8 @@ const Projects = () => (
                 </ProjectItem>
             </ProjectContainer>
         </ProjectContainer>
+
+        <ClickMe />
     </ProjectsContainer>
 );
 
