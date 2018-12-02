@@ -17,7 +17,13 @@ const ProjectContainer = styled.div`
     align-items: center;
 
     & > div + div {
-        margin-top: 5rem;
+        margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+        & > div + div {
+            margin-top: 3rem;
+        }
     }
 `;
 
@@ -103,7 +109,7 @@ const ButtonContainer = styled.div`
     justify-content: space-around;
     margin-top: 11%;
 
-    @media (max-width: 375px) {
+    @media (max-width: 500px) {
         flex-direction: column;
         justify-content: center;
         align-items: center;
