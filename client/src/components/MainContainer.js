@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Projects from './Projects';
 import Parallax from './Parallax';
+import Skills from './Skills';
 
 class MainContainer extends Component {
     state = {
@@ -23,6 +24,7 @@ class MainContainer extends Component {
                 <Navbar />
                 <Home />
                 <Projects />
+                <Skills />
             </div>
         );
     }

@@ -11,9 +11,45 @@ const SkillsContainer = styled.div`
     position: relative;
 `;
 
+const SkillsInnerContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+`;
+
+const SkillBox = styled.div`
+    width: 33.333%;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.05);
+    transition: 0.2s;
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.08);
+    }
+`;
+
 const Skills = (props) => (
     <SkillsContainer>
         <SectionTitle text="Skills" />
+
+        <SkillsInnerContainer>
+            <SkillBox>
+            
+            </SkillBox>
+
+            <SkillBox>
+            
+            </SkillBox>
+
+            <SkillBox>
+            
+            </SkillBox>
+        </SkillsInnerContainer>
 
         <ClickMe />
     </SkillsContainer>
