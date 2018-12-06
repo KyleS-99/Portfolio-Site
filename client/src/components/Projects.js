@@ -140,6 +140,7 @@ const Button = styled.a`
     text-align: center;
     line-height: 40px;
     font-size: 1.1rem;
+    z-index: 5;
 
     &:hover {
         cursor: pointer;
