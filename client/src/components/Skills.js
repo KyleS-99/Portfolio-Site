@@ -15,7 +15,7 @@ const SkillsInnerContainer = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 `;
 
@@ -26,6 +26,7 @@ const SkillBox = styled.div`
     border: 1px solid #eee;
     box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.05);
     transition: 0.2s;
+    margin: 2%;
     
     &:hover {
         transform: translateY(-3px);
