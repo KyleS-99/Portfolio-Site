@@ -17,10 +17,15 @@ const SkillsInnerContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 `;
 
 const SkillBox = styled.div`
-    width: 33.333%;
+    width: 30%;
+    max-width: 450px;
     height: 400px;
     background: #fff;
     border: 1px solid #eee;
@@ -31,6 +36,10 @@ const SkillBox = styled.div`
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.08);
+    }
+
+    @media (max-width: 1000px) {
+        width: 80%;
     }
 `;
 
