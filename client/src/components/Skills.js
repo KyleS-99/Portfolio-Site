@@ -34,21 +34,52 @@ const SkillBox = styled.div`
     }
 `;
 
+const Title = styled.h2`
+    margin-top: 2.65rem;
+    text-align: center;
+    font-size: 20px;
+    color: #696969;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: ${props => props.size};
+`;
+
+const ColorBorder = styled.div`
+    width: 100%;
+    height: 5px;
+    background-image: ${props => props.color}
+    position: relative;
+`;
+
+const Blur = styled.div`
+    filter: blur(10px);
+    width: 100%;
+    height: 5px;
+    background-image: ${props => props.color}
+    position: relative;
+`;
+
 const Skills = (props) => (
     <SkillsContainer>
         <SectionTitle text="Skills" />
 
         <SkillsInnerContainer>
             <SkillBox>
-            
+                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Title size="8px">front end</Title>
             </SkillBox>
 
             <SkillBox>
-            
+                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Title size="8px">back end</Title>
             </SkillBox>
 
             <SkillBox>
-            
+                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <Title size="6px">version control</Title>
             </SkillBox>
         </SkillsInnerContainer>
 
