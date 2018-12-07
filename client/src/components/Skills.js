@@ -24,14 +24,18 @@ const SkillsInnerContainer = styled.div`
 `;
 
 const SkillBox = styled.div`
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-self: stretch;
     max-width: 450px;
-    height: 400px;
+    min-height: 400px;
     background: #fff;
     border: 1px solid #eee;
     box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.05);
     transition: 0.2s;
     margin: 2%;
+    padding-bottom: 2rem;
     
     &:hover {
         transform: translateY(-3px);
@@ -40,6 +44,7 @@ const SkillBox = styled.div`
 
     @media (max-width: 1000px) {
         width: 80%;
+        margin: 2% auto;
     }
 `;
 
@@ -68,6 +73,26 @@ const Blur = styled.div`
     position: relative;
 `;
 
+const List = styled.div`
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+`;
+
+const ListItem = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+const Skill = styled.p`
+    font-weight: bold;
+    color: #696969;
+    margin-left: 8px;
+    font-size: 20px;
+`;
+
 const Skills = (props) => (
     <SkillsContainer>
         <SectionTitle text="Skills" />
@@ -77,6 +102,38 @@ const Skills = (props) => (
                 <ColorBorder />
                 <Blur />
                 <Title size="8px">front end</Title>
+
+                <List>
+                    <ListItem>
+                        <img src={window.location.origin + '/img/html.png'} alt="" />
+                        <Skill>HTML</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/css.png'} alt="" />
+                        <Skill>CSS</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/styled-components.png'} alt="" />
+                        <Skill style={{ fontSize: '19px' }}>Styled-Components</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/js.png'} alt="" />
+                        <Skill>JavaScript</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/react.png'} alt="" />
+                        <Skill>React</Skill>
+                    </ListItem>                    
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/redux.png'} alt="" />
+                        <Skill>Redux</Skill>
+                    </ListItem>                    
+                </List>
             </SkillBox>
 
             <SkillBox>
