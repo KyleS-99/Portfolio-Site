@@ -56,7 +56,7 @@ const Title = styled.h2`
 const ColorBorder = styled.div`
     width: 100%;
     height: 5px;
-    background-image: ${props => props.color}
+    background-image: linear-gradient(90deg,#92fe9d 0,#00c9ff);
     position: relative;
 `;
 
@@ -64,7 +64,7 @@ const Blur = styled.div`
     filter: blur(10px);
     width: 100%;
     height: 5px;
-    background-image: ${props => props.color}
+    background-image: linear-gradient(90deg,#92fe9d 0,#00c9ff);
     position: relative;
 `;
 
@@ -74,20 +74,20 @@ const Skills = (props) => (
 
         <SkillsInnerContainer>
             <SkillBox>
-                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
-                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <ColorBorder />
+                <Blur />
                 <Title size="8px">front end</Title>
             </SkillBox>
 
             <SkillBox>
-                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
-                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <ColorBorder />
+                <Blur />
                 <Title size="8px">back end</Title>
             </SkillBox>
 
             <SkillBox>
-                <ColorBorder color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
-                <Blur color="linear-gradient(90deg,#92fe9d 0,#00c9ff);" />
+                <ColorBorder />
+                <Blur />
                 <Title size="6px">version control</Title>
             </SkillBox>
         </SkillsInnerContainer>
