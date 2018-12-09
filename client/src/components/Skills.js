@@ -6,7 +6,6 @@ import ClickMe from './styled/ClickMe';
 
 const SkillsContainer = styled.div`
     width: 100%;
-    min-height: 100vh;
     padding-bottom: 10rem;
     position: relative;
 `;
@@ -87,7 +86,7 @@ const ListItem = styled.div`
 `;
 
 const Skill = styled.p`
-    font-weight: bold;
+    font-weight: 300;
     color: #696969;
     margin-left: 8px;
     font-size: 20px;
@@ -140,6 +139,18 @@ const Skills = (props) => (
                 <ColorBorder />
                 <Blur />
                 <Title size="8px">back end</Title>
+
+                <List>
+                    <ListItem>
+                        <img src={window.location.origin + '/img/nodejs.png'} alt="" />
+                        <Skill>Node.js</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/express.png'} alt="" />
+                        <Skill>Express</Skill>
+                    </ListItem>
+                </List>
             </SkillBox>
 
             <SkillBox>
