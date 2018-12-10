@@ -150,6 +150,21 @@ const Skills = (props) => (
                         <img src={window.location.origin + '/img/express.png'} alt="" />
                         <Skill>Express</Skill>
                     </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/mongo.png'} alt="" />
+                        <Skill>MongoDB</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/mysql.png'} alt="" />
+                        <Skill>MySQL</Skill>
+                    </ListItem>
+
+                    <ListItem>
+                        <img src={window.location.origin + '/img/jwt.png'} alt="" />
+                        <Skill>JWT</Skill>
+                    </ListItem>
                 </List>
             </SkillBox>
 
@@ -157,6 +172,13 @@ const Skills = (props) => (
                 <ColorBorder />
                 <Blur />
                 <Title size="6px">version control</Title>
+                
+                <List>
+                    <ListItem>
+                        <img src={window.location.origin + '/img/git.png'} alt="" />
+                        <Skill>GIT</Skill>
+                    </ListItem>
+                </List>
             </SkillBox>
         </SkillsInnerContainer>
 
