@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
+import Parallax from './Parallax';
 import Navbar from './Navbar';
 import Home from './Home';
 import Projects from './Projects';
-import Parallax from './Parallax';
 import Skills from './Skills';
+import Contact from './Contact';
 
 class MainContainer extends Component {
     state = {
@@ -25,6 +26,7 @@ class MainContainer extends Component {
                 <Home />
                 <Projects />
                 <Skills />
+                <Contact />
             </div>
         );
     }
