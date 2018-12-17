@@ -39,7 +39,7 @@ const InputContainer = styled.div`
 `;
 
 const Input = styled.input`
-    
+    padding: 10px;
 `;
 
 const TextArea = styled.textarea`
