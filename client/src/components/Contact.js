@@ -86,9 +86,9 @@ class Contact extends Component {
                                     <Label htmlFor="email">email</Label>
                                     <Input 
                                         onChange={this.onChange} 
-                                        placeholder="Subject" 
+                                        placeholder="Email" 
                                         value={email} 
-                                        name="subject"
+                                        name="email"
                                         id="email"
                                     />
                                 </LabelContainer>
