@@ -20,12 +20,21 @@ const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    & > div + div {
+        margin-top: 37px;
+    }
 `;
 
 const LabelContainer = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    & > input, textarea {
+        outline: none;
+        border: 1px solid #eee;
+    }
 `;
 
 const InputContainer = styled.div`
@@ -34,7 +43,7 @@ const InputContainer = styled.div`
     width: 100%;
 
     & > div + div {
-        margin-right: 20px;
+        margin-left: 30px;
     }
 `;
 
@@ -44,10 +53,14 @@ const Input = styled.input`
 
 const TextArea = styled.textarea`
     width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
 `;
 
 const Label = styled.label`
     text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 3px;
 `;
 
 class Contact extends Component {
@@ -111,6 +124,7 @@ class Contact extends Component {
                                     value={message} 
                                     name="message" 
                                     id="message"
+                                    rows="11"
                                 />
                             </LabelContainer>
                         </div>
