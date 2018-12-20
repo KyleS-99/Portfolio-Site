@@ -34,6 +34,7 @@ const LabelContainer = styled.div`
     & > input, textarea {
         outline: none;
         border: 1px solid #eee;
+        font-size: 18px;
     }
 `;
 
@@ -55,6 +56,7 @@ const TextArea = styled.textarea`
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
+    resize: vertical;
 `;
 
 const Label = styled.label`
@@ -88,7 +90,7 @@ class Contact extends Component {
                                     <Label htmlFor="name">name</Label>
                                     <Input 
                                         onChange={this.onChange} 
-                                        placeholder="Name" 
+                                        placeholder="Whats your mom call you?" 
                                         value={name} 
                                         name="name"
                                         id="name"
@@ -99,7 +101,7 @@ class Contact extends Component {
                                     <Label htmlFor="email">email</Label>
                                     <Input 
                                         onChange={this.onChange} 
-                                        placeholder="Email" 
+                                        placeholder="Where can I email you back?" 
                                         value={email} 
                                         name="email"
                                         id="email"
@@ -120,7 +122,7 @@ class Contact extends Component {
                                 <Label htmlFor="message">message</Label>
                                 <TextArea 
                                     onChange={this.onChange} 
-                                    placeholder="Message" 
+                                    placeholder="What's on your mind?" 
                                     value={message} 
                                     name="message" 
                                     id="message"
