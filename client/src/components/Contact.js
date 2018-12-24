@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import SectionTitle from './styled/SectionTitle';
+import { ButtonBlur } from './styled/ButtonAndBlur';
 
 const ContactContainer = styled.div`
     width: 100%;
@@ -35,6 +36,7 @@ const LabelContainer = styled.div`
         outline: none;
         border: 1px solid #eee;
         font-size: 18px;
+        box-shadow: 0px 20px 80px -1px rgba(0,0,0,0.05);
     }
 `;
 
@@ -65,6 +67,34 @@ const Label = styled.label`
     margin-bottom: 3px;
 `;
 
+const Submit = styled.button`
+    width: 150px;
+    height: 40px;
+    background: #000;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 300;
+    -webkit-transition: .2s;
+    transition: .2s;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.1rem;
+    margin-top: 3rem;
+
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(4px);
+        transform: scale(0.9);
+    }
+`;
+
 class Contact extends Component {
     state = {
         email: '',
@@ -75,6 +105,9 @@ class Contact extends Component {
     onChange = ({ target: { name, value } }) => {
         this.setState({ [name]: value })
     }
+    onSubmit = () => {
+
+    }
     render() {
         const { email, name, message, hiddenInput } = this.state;
 
@@ -83,7 +116,7 @@ class Contact extends Component {
                 <SectionTitle text="Contact" />
 
                 <FormContainer>
-                    <Form autoComplete="off">
+                    <Form autoComplete="off" onSubmit={this.onSubmit}>
                         <div style={{ width: '100%' }}>
                             <InputContainer>
                                 <LabelContainer>
@@ -92,6 +125,7 @@ class Contact extends Component {
                                         onChange={this.onChange} 
                                         placeholder="Whats your mom call you?" 
                                         value={name} 
+                                        type="text"
                                         name="name"
                                         id="name"
                                     />
@@ -103,6 +137,7 @@ class Contact extends Component {
                                         onChange={this.onChange} 
                                         placeholder="Where can I email you back?" 
                                         value={email} 
+                                        type="email"
                                         name="email"
                                         id="email"
                                     />
@@ -112,6 +147,7 @@ class Contact extends Component {
                                     onChange={this.onChange} 
                                     style={{ display: 'none' }} 
                                     value={hiddenInput} 
+                                    type="text"
                                     name="hiddenInput"
                                 />
                             </InputContainer>
@@ -130,6 +166,11 @@ class Contact extends Component {
                                 />
                             </LabelContainer>
                         </div>
+
+                        <Submit type="submit">
+                            submit
+                            <ButtonBlur />
+                        </Submit>
                     </Form>
                 </FormContainer>
             </ContactContainer>
