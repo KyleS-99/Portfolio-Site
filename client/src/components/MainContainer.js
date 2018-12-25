@@ -6,6 +6,7 @@ import Home from './Home';
 import Projects from './Projects';
 import Skills from './Skills';
 import Contact from './Contact';
+import Footer from './Footer';
 
 class MainContainer extends Component {
     state = {
@@ -27,6 +28,7 @@ class MainContainer extends Component {
                 <Projects />
                 <Skills />
                 <Contact />
+                <Footer />
             </div>
         );
     }
