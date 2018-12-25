@@ -106,7 +106,7 @@ class Contact extends Component {
         this.setState({ [name]: value })
     }
     onSubmit = () => {
-
+        
     }
     render() {
         const { email, name, message, hiddenInput } = this.state;
