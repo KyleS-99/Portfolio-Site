@@ -168,7 +168,7 @@ class Contact extends Component {
                         </div>
 
                         <Submit type="submit">
-                            submit
+                            send
                             <ButtonBlur />
                         </Submit>
                     </Form>
