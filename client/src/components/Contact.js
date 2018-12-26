@@ -6,7 +6,7 @@ import { ButtonBlur } from './styled/ButtonAndBlur';
 
 const ContactContainer = styled.div`
     width: 100%;
-    padding-bottom: 10rem;
+    padding-bottom: 6rem;
     position: relative;
 `;
 
