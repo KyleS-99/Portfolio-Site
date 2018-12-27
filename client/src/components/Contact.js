@@ -25,6 +25,12 @@ const Form = styled.form`
     & > div + div {
         margin-top: 37px;
     }
+
+    @media (max-width: 768px) {
+        & > div + div {
+            margin-top: 1rem;
+        }
+    }
 `;
 
 const LabelContainer = styled.div`
@@ -47,6 +53,15 @@ const InputContainer = styled.div`
 
     & > div + div {
         margin-left: 30px;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        & > div + div {
+            margin: 0px;
+            margin-top: 1rem;
+        }
     }
 `;
 
