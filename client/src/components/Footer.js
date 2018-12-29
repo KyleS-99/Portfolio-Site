@@ -13,6 +13,7 @@ const FooterContainer = styled.footer`
 const Copy = styled.p`
     font-size: 1.1rem;
     margin: 0;
+    text-align: center;
 `;
 
 const ViewSource = styled.a`
