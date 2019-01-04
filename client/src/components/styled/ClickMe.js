@@ -33,7 +33,7 @@ const ScrollDownContainer = styled.div`
 `;
 
 const ScrollDown = styled.p`
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     text-transform: capitalize;
 `;
 

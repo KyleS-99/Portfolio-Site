@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+import Jump from './styled/Jump';
 
 const Header = styled.header`
     box-shadow: rgba(0, 0, 0, 0.01) 0px 7px 19px 0px;
@@ -66,24 +68,9 @@ const Section = styled.p`
     }
 `;
 
-const jump = keyframes`
-25% {
-transform: translateY(-8px);
-transform: translateY(-8px); }
-50% {
-transform: translateY(0px);
-transform: translateY(0px); }
-75% {
-transform: translateY(-4px);
-transform: translateY(-4px); }
-100% {
-transform: translateY(0px);
-transform: translateY(0px); }
-`;
-
 const GithubImg = styled.img`
     &:hover {
-        animation: ${jump} 1s infinite;
+        animation: ${Jump} 1s infinite;
     }
 `;
 
