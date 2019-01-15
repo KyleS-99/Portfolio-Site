@@ -74,6 +74,11 @@ const GithubImg = styled.img`
     }
 `;
 
+const NavLinkContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
 class Navbar extends Component {
     state = {
         
@@ -84,7 +89,7 @@ class Navbar extends Component {
                 <Header>
                     <Nav>
                         <Logo>kyle stauch</Logo>
-                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <NavLinkContainer>
                             <Section>
                                 projects
                             </Section>
@@ -100,7 +105,7 @@ class Navbar extends Component {
                             <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
                                 <GithubImg src={window.location.origin + '/img/github.png'} alt="Github" />
                             </a>
-                        </div>
+                        </NavLinkContainer>
                     </Nav>
                 </Header>
             </React.Fragment>
