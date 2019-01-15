@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Parallax from './Parallax';
 import Navbar from './Navbar';
 import Home from './Home';
 import Projects from './Projects';
@@ -11,18 +10,30 @@ import Footer from './Footer';
 class MainContainer extends Component {
     state = {
         currentView: '/',
-        order: ['/', '/projects', '/skills', '/contact']
+        order: ['/', '/projects', '/skills', '/contact'],
+        isChrome: false,
+        ParallaxElement: null
     }
     handleScroll = (e) => {
         console.log(e);
     }
     componentDidMount() {
-        // window.addEventListener('scroll', this.handleScroll, { passive: true });
+        if (window.chrome) {
+            import('./Parallax')
+                .then(Parallax => {
+                    this.setState({
+                        isChrome: true,
+                        ParallaxElement: Parallax.default()
+                    });
+                });
+        }
     }
     render() {
+        const { isChrome, ParallaxElement } = this.state;
+
         return (
             <div style={{overflow: 'hidden'}}>
-                { /* <Parallax /> */}
+                {/* isChrome && ParallaxElement */}
                 <Navbar />
                 <Home />
                 <Projects />
