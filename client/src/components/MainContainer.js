@@ -14,9 +14,6 @@ class MainContainer extends Component {
         isChrome: false,
         ParallaxElement: null
     }
-    handleScroll = (e) => {
-        console.log(e);
-    }
     componentDidMount() {
         if (window.chrome) {
             import('./Parallax')
