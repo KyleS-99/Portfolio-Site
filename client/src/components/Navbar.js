@@ -79,9 +79,16 @@ const NavLinkContainer = styled.div`
     flex-direction: row;
 `;
 
+const HamburgerContainer = styled.div`
+    display: ${props => props.active ? 'flex' : 'none'}
+`;
+
 class Navbar extends Component {
     state = {
-        
+        active: false
+    }
+    toggleMenu = () => {
+        this.setState((prevState) => ({ active: !prevState.active }));
     }
     render() {
         return (
