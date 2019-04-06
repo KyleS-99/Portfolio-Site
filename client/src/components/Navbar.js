@@ -81,19 +81,61 @@ const NavLinkContainer = styled.div`
 
 const HamburgerContainer = styled.div`
     display: ${props => props.active ? 'flex' : 'none'}
+    float: right;
+    width: 80px;
+    cursor: pointer;
+`;
+
+const Hamburger = styled.div`
+    z-index: 20;
+    position: absolute;
+    width: 42px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: #000;
+    box-shadow: 2px 2px 12px 0px rgba(179,179,179,1);
+    margin: 38px 20px;
+    transition: .5s;
+    top: -10px;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 42px;
+        height: 5px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 12px 0px rgba(179,179,179,1);
+        transition: .5s;
+        background: #000;
+    }
+
+    &::before {
+        top: -9px;
+    }
+
+    &::after {
+        top: 9px;
+    }
 `;
 
 class Navbar extends Component {
     state = {
-        active: false
+        active: true
     }
     toggleMenu = () => {
         this.setState((prevState) => ({ active: !prevState.active }));
     }
     render() {
+        const { active } = this.state;
+
         return (
             <React.Fragment>
                 <Header>
+                    <HamburgerContainer active={active}>
+                        <Hamburger />
+                    </HamburgerContainer>
+
                     <Nav>
                         <Logo>kyle stauch</Logo>
                         <NavLinkContainer>
