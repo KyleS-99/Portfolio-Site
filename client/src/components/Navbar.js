@@ -98,6 +98,10 @@ const Hamburger = styled.div`
     transition: .5s;
     top: -10px;
     right: 5%;
+    ${({ active }) => active && `
+        background-color: transparent;
+        box-shadow: none;
+    `}
 
     &::before, &::after {
         content: '';
@@ -122,6 +126,11 @@ const Hamburger = styled.div`
 
     &::after {
         top: 9px;
+        ${({ active }) => active && `
+            top: 0;
+            transform: rotate(135deg);
+            width: 42px;
+        `
     }
 `;
 
