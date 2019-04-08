@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Jump from './styled/Jump';
+import FadeInAndOut from './styled/FadeInAndOut';
 
 const Header = styled.header`
     box-shadow: rgba(0, 0, 0, 0.01) 0px 7px 19px 0px;
@@ -12,6 +13,13 @@ const Header = styled.header`
     z-index: 10;
     border-bottom: 1px solid rgb(238, 238, 238);
     background: #fff;
+
+    @media (max-width: 1000px) {
+        box-shadow: none;
+        position: initial;
+        width: 100%;
+        ${({ active }) => active && 'position: fixed;'}
+    }
 `;
 
 const Nav = styled.nav`
@@ -32,6 +40,7 @@ const Nav = styled.nav`
 
 const Logo = styled.h1`
     font-size: 1.5rem;
+    ${({ active }) => active && 'display: none;'}
 
     &::after {
         content: '';
@@ -66,6 +75,11 @@ const Section = styled.p`
     &:hover::after {
         width: 100%;
     }
+
+    @media (max-width: 1000px) {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+    }
 `;
 
 const GithubImg = styled.img`
@@ -77,13 +91,44 @@ const GithubImg = styled.img`
 const NavLinkContainer = styled.div`
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 1000px) {
+        ${({ active }) => active ? 
+            `
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                width: 100vw;
+                justify-content: center;
+                align-items: center;
+                z-index: 10;
+                background-color: #fff;
+
+                & > a {
+                    margin-top: 1rem;
+                }
+            ` 
+            : 
+            `display: none;`
+        }
+
+        ${({ active }) => active && css`animation: 0.5s ${FadeInAndOut};`}
+    }
 `;
 
 const HamburgerContainer = styled.div`
-    display: ${props => props.active ? 'flex' : 'none'}
+    display: none;
     float: right;
     width: 80px;
     cursor: pointer;
+
+    @media (max-width: 1000px) {
+        display: flex;
+
+        & > div {
+            position: fixed;
+        }
+    }
 `;
 
 const Hamburger = styled.div`
@@ -136,7 +181,7 @@ const Hamburger = styled.div`
 
 class Navbar extends Component {
     state = {
-        active: true
+        active: false
     }
     toggleMenu = () => {
         this.setState((prevState) => ({ active: !prevState.active }));
@@ -146,14 +191,14 @@ class Navbar extends Component {
 
         return (
             <React.Fragment>
-                <Header>
+                <Header active={active}>
                     <HamburgerContainer active={active}>
-                        <Hamburger active={active} />
+                        <Hamburger active={active} onClick={this.toggleMenu} />
                     </HamburgerContainer>
 
                     <Nav>
-                        <Logo>kyle stauch</Logo>
-                        <NavLinkContainer>
+                        <Logo active={active}>kyle stauch</Logo>
+                        <NavLinkContainer active={active}>
                             <Section>
                                 projects
                             </Section>
@@ -167,7 +212,7 @@ class Navbar extends Component {
                             </Section>
                             
                             <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
-                                <GithubImg src={window.location.origin + '/img/github.png'} alt="Github" />
+                                <GithubImg src={active ? window.location.origin + '/img/github-large.png' : window.location.origin + '/img/github.png'} alt="Github" />
                             </a>
                         </NavLinkContainer>
                     </Nav>
