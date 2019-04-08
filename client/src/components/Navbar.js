@@ -97,6 +97,7 @@ const Hamburger = styled.div`
     margin: 38px 20px;
     transition: .5s;
     top: -10px;
+    right: 5%;
 
     &::before, &::after {
         content: '';
@@ -112,6 +113,11 @@ const Hamburger = styled.div`
 
     &::before {
         top: -9px;
+        ${({ active }) => active && `
+            top: 0;
+            transform: rotate(45deg);
+            width: 42px;
+        `}
     }
 
     &::after {
@@ -133,7 +139,7 @@ class Navbar extends Component {
             <React.Fragment>
                 <Header>
                     <HamburgerContainer active={active}>
-                        <Hamburger />
+                        <Hamburger active={active} />
                     </HamburgerContainer>
 
                     <Nav>
