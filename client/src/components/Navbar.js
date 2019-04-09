@@ -185,6 +185,9 @@ class Navbar extends Component {
     toggleMenu = () => {
         this.setState((prevState) => ({ active: !prevState.active }));
     }
+    closeMenu = () => {
+        this.setState({ active: false });
+    }
     render() {
         const { active } = this.state;
 
