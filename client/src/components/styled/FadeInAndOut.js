@@ -1,10 +1,10 @@
 import { keyframes } from 'styled-components';
 
 export default keyframes`
-    0% {
+    from {
         opacity: 0;
     }
-    100% {
+    to {
         opacity: 1;
     }
 `;

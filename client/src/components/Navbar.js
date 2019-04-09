@@ -16,7 +16,6 @@ const Header = styled.header`
 
     @media (max-width: 1000px) {
         box-shadow: none;
-        position: initial;
         width: 100%;
         ${({ active }) => active && 'position: fixed;'}
     }
