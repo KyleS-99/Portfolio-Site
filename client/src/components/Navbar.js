@@ -30,6 +30,8 @@ const Nav = styled.nav`
     justify-content: space-between;
     background: #fff;
 
+    ${({ active }) => active && 'width: 100%'}
+
     & * {
         cursor: pointer;
         font-weight: 300;
@@ -198,7 +200,7 @@ class Navbar extends Component {
                         <Hamburger active={active} onClick={this.toggleMenu} />
                     </HamburgerContainer>
 
-                    <Nav>
+                    <Nav active={active}>
                         <Logo active={active}>kyle stauch</Logo>
                         <NavLinkContainer active={active}>
                             <Section>

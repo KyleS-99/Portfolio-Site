@@ -8,11 +8,23 @@ import Contact from './Contact';
 import Footer from './Footer';
 
 class MainContainer extends Component {
-    state = {
-        currentView: '/',
-        order: ['/', '/projects', '/skills', '/contact'],
-        isChrome: false,
-        ParallaxElement: null
+    constructor() {
+        super();
+
+        this.state = {
+            currentView: '/',
+            order: ['/', '/projects', '/skills', '/contact'],
+            isChrome: false,
+            ParallaxElement: null
+        };
+
+        this.homeRef = React.createRef();
+        this.projectsRef = React.createRef();
+        this.skillsRef = React.createRef();
+        this.contactRef = React.createRef();
+    }
+    scroll = (target) => {
+        const duration = 1500;
     }
     componentDidMount() {
         if (window.chrome) {
@@ -24,6 +36,7 @@ class MainContainer extends Component {
                     });
                 });
         }
+        this.scroll();
     }
     render() {
         const { isChrome, ParallaxElement } = this.state;
@@ -32,10 +45,10 @@ class MainContainer extends Component {
             <div style={{overflow: 'hidden'}}>
                 {/* isChrome && ParallaxElement */}
                 <Navbar />
-                <Home />
-                <Projects />
-                <Skills />
-                <Contact />
+                <Home ref={this.homeRef} />
+                <Projects ref={this.projectsRef} />
+                <Skills ref={this.skillsRef} />
+                <Contact ref={this.contactRef} />
                 <Footer />
             </div>
         );

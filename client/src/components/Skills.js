@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import SectionTitle from './styled/SectionTitle';
@@ -92,98 +92,102 @@ const Skill = styled.p`
     font-size: 20px;
 `;
 
-const Skills = (props) => (
-    <SkillsContainer>
-        <SectionTitle text="Skills" />
-
-        <SkillsInnerContainer>
-            <SkillBox>
-                <ColorBorder />
-                <Blur />
-                <Title size="8px">front end</Title>
-
-                <List>
-                    <ListItem>
-                        <img src={window.location.origin + '/img/html.png'} alt="" />
-                        <Skill>HTML</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/css.png'} alt="" />
-                        <Skill>CSS</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/styled-components.png'} alt="" />
-                        <Skill style={{ fontSize: '19px' }}>Styled-Components</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/js.png'} alt="" />
-                        <Skill>JavaScript</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/react.png'} alt="" />
-                        <Skill>React</Skill>
-                    </ListItem>                    
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/redux.png'} alt="" />
-                        <Skill>Redux</Skill>
-                    </ListItem>                    
-                </List>
-            </SkillBox>
-
-            <SkillBox>
-                <ColorBorder />
-                <Blur />
-                <Title size="8px">back end</Title>
-
-                <List>
-                    <ListItem>
-                        <img src={window.location.origin + '/img/nodejs.png'} alt="" />
-                        <Skill>Node.js</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/express.png'} alt="" />
-                        <Skill>Express</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/mongo.png'} alt="" />
-                        <Skill>MongoDB</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/mysql.png'} alt="" />
-                        <Skill>MySQL</Skill>
-                    </ListItem>
-
-                    <ListItem>
-                        <img src={window.location.origin + '/img/jwt.png'} alt="" />
-                        <Skill>JWT</Skill>
-                    </ListItem>
-                </List>
-            </SkillBox>
-
-            <SkillBox>
-                <ColorBorder />
-                <Blur />
-                <Title size="6px">version control</Title>
-                
-                <List>
-                    <ListItem>
-                        <img src={window.location.origin + '/img/git.png'} alt="" />
-                        <Skill>GIT</Skill>
-                    </ListItem>
-                </List>
-            </SkillBox>
-        </SkillsInnerContainer>
-
-        <ClickMe />
-    </SkillsContainer>
-);
+class Skills extends Component {
+    render() {
+        return (
+            <SkillsContainer>
+                <SectionTitle text="Skills" />
+        
+                <SkillsInnerContainer>
+                    <SkillBox>
+                        <ColorBorder />
+                        <Blur />
+                        <Title size="8px">front end</Title>
+        
+                        <List>
+                            <ListItem>
+                                <img src={window.location.origin + '/img/html.png'} alt="" />
+                                <Skill>HTML</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/css.png'} alt="" />
+                                <Skill>CSS</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/styled-components.png'} alt="" />
+                                <Skill style={{ fontSize: '19px' }}>Styled-Components</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/js.png'} alt="" />
+                                <Skill>JavaScript</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/react.png'} alt="" />
+                                <Skill>React</Skill>
+                            </ListItem>                    
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/redux.png'} alt="" />
+                                <Skill>Redux</Skill>
+                            </ListItem>                    
+                        </List>
+                    </SkillBox>
+        
+                    <SkillBox>
+                        <ColorBorder />
+                        <Blur />
+                        <Title size="8px">back end</Title>
+        
+                        <List>
+                            <ListItem>
+                                <img src={window.location.origin + '/img/nodejs.png'} alt="" />
+                                <Skill>Node.js</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/express.png'} alt="" />
+                                <Skill>Express</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/mongo.png'} alt="" />
+                                <Skill>MongoDB</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/mysql.png'} alt="" />
+                                <Skill>MySQL</Skill>
+                            </ListItem>
+        
+                            <ListItem>
+                                <img src={window.location.origin + '/img/jwt.png'} alt="" />
+                                <Skill>JWT</Skill>
+                            </ListItem>
+                        </List>
+                    </SkillBox>
+        
+                    <SkillBox>
+                        <ColorBorder />
+                        <Blur />
+                        <Title size="6px">version control</Title>
+                        
+                        <List>
+                            <ListItem>
+                                <img src={window.location.origin + '/img/git.png'} alt="" />
+                                <Skill>GIT</Skill>
+                            </ListItem>
+                        </List>
+                    </SkillBox>
+                </SkillsInnerContainer>
+        
+                <ClickMe />
+            </SkillsContainer>
+        );
+    }
+}
 
 export default Skills;
