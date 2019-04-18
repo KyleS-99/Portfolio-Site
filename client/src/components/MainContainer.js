@@ -12,19 +12,23 @@ class MainContainer extends Component {
         super();
 
         this.state = {
-            currentView: '/',
             order: ['/', '/projects', '/skills', '/contact'],
             isChrome: false,
             ParallaxElement: null
         };
-
-        this.homeRef = React.createRef();
-        this.projectsRef = React.createRef();
-        this.skillsRef = React.createRef();
-        this.contactRef = React.createRef();
     }
     scroll = (target) => {
         const duration = 1500;
+        target = this.state.order.indexOf(target);
+        let targetPos;
+
+        // switch (target) {
+        //     case 0:
+        //         targetPos = this.homeRef.current.getBoundingClientRect();
+        //         break;
+        //     default:
+        //         targetPos = this.homeRef.current.getBoundingClientRect();
+        // }
     }
     componentDidMount() {
         if (window.chrome) {
@@ -36,7 +40,7 @@ class MainContainer extends Component {
                     });
                 });
         }
-        this.scroll();
+        this.scroll('/');
     }
     render() {
         const { isChrome, ParallaxElement } = this.state;
@@ -45,10 +49,10 @@ class MainContainer extends Component {
             <div style={{overflow: 'hidden'}}>
                 {/* isChrome && ParallaxElement */}
                 <Navbar />
-                <Home ref={this.homeRef} />
-                <Projects ref={this.projectsRef} />
-                <Skills ref={this.skillsRef} />
-                <Contact ref={this.contactRef} />
+                <Home />
+                <Projects />
+                <Skills />
+                <Contact />
                 <Footer />
             </div>
         );

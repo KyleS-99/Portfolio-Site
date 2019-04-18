@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import ClickMe from './styled/ClickMe';
@@ -46,23 +46,20 @@ const GitHub = styled.img`
 `;
 
 
-class Home extends Component { 
-    render() {
-        return (
-            <HomeContainer>
-                <Intro>hello, i'm kyle!</Intro>
-                <TagLine>full stack developer | open-source enthusiast | night owl</TagLine>
-                <a 
-                    href="https://github.com/KyleS-99" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{ marginTop: '0.5rem' }}
-                >
-                    <GitHub src={window.location.origin + '/img/github-large.png'} />
-                </a>
-                <ClickMe />
-            </HomeContainer>
-        );
-    }
-}
+const Home = () => (
+    <HomeContainer>
+        <Intro>hello, i'm kyle!</Intro>
+        <TagLine>full stack developer | open-source enthusiast | night owl</TagLine>
+        <a 
+            href="https://github.com/KyleS-99" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ marginTop: '0.5rem' }}
+        >
+            <GitHub src={window.location.origin + '/img/github-large.png'} />
+        </a>
+        <ClickMe />
+    </HomeContainer>
+);
+
 export default Home;
