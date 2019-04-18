@@ -128,7 +128,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Projects = () => (
-    <ProjectsContainer>
+    <ProjectsContainer id="projects">
         <SectionTitle text="Projects" />
 
         <ProjectContainer>

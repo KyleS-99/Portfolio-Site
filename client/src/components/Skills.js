@@ -93,7 +93,7 @@ const Skill = styled.p`
 `;
 
 const Skills = (props) => (
-    <SkillsContainer>
+    <SkillsContainer id="skills">
         <SectionTitle text="Skills" />
 
         <SkillsInnerContainer>

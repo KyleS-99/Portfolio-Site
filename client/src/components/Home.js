@@ -47,7 +47,7 @@ const GitHub = styled.img`
 
 
 const Home = () => (
-    <HomeContainer>
+    <HomeContainer id="home">
         <Intro>hello, i'm kyle!</Intro>
         <TagLine>full stack developer | open-source enthusiast | night owl</TagLine>
         <a 
