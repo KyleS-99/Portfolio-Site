@@ -127,7 +127,7 @@ class Contact extends Component {
         const { email, name, message, hiddenInput } = this.state;
 
         return (
-            <ContactContainer>
+            <ContactContainer id="contact">
                 <SectionTitle text="Contact" />
 
                 <FormContainer>

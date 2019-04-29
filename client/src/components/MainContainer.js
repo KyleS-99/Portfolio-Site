@@ -12,23 +12,12 @@ class MainContainer extends Component {
         super();
 
         this.state = {
-            order: ['/', '/projects', '/skills', '/contact'],
             isChrome: false,
             ParallaxElement: null
         };
     }
-    scroll = (target) => {
-        const duration = 1500;
-        target = this.state.order.indexOf(target);
-        let targetPos;
-
-        // switch (target) {
-        //     case 0:
-        //         targetPos = this.homeRef.current.getBoundingClientRect();
-        //         break;
-        //     default:
-        //         targetPos = this.homeRef.current.getBoundingClientRect();
-        // }
+    scroll = targetId => {
+        
     }
     componentDidMount() {
         if (window.chrome) {
@@ -40,7 +29,7 @@ class MainContainer extends Component {
                     });
                 });
         }
-        this.scroll('/');
+        this.scroll('#skills');
     }
     render() {
         const { isChrome, ParallaxElement } = this.state;
@@ -48,7 +37,7 @@ class MainContainer extends Component {
         return (
             <div style={{overflow: 'hidden'}}>
                 {/* isChrome && ParallaxElement */}
-                <Navbar />
+                <Navbar scroll={this.scroll} />
                 <Home />
                 <Projects />
                 <Skills />

@@ -190,6 +190,9 @@ class Navbar extends Component {
     closeMenu = () => {
         this.setState({ active: false });
     }
+    runScroll = (event) => {
+        this.props.scroll(event.target.dataset.target);
+    }
     render() {
         const { active } = this.state;
 
@@ -203,15 +206,24 @@ class Navbar extends Component {
                     <Nav active={active}>
                         <Logo active={active}>kyle stauch</Logo>
                         <NavLinkContainer active={active}>
-                            <Section>
+                            <Section 
+                                onClick={this.runScroll}
+                                data-target="#projects"
+                            >
                                 projects
                             </Section>
 
-                            <Section>
+                            <Section 
+                                onClick={this.runScroll}
+                                data-target="#skills"
+                            >
                                 skills
                             </Section>
 
-                            <Section>
+                            <Section 
+                                onClick={this.runScroll}
+                                data-target="#contact"
+                            >
                                 contact
                             </Section>
                             
