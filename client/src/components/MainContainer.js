@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { animateScroll as scroll } from 'react-scroll';
 
 import Navbar from './Navbar';
 import Home from './Home';
@@ -16,8 +17,8 @@ class MainContainer extends Component {
             ParallaxElement: null
         };
     }
-    scroll = targetId => {
-        
+    scrollToTop = () => {
+        scroll.scrollToTop();
     }
     componentDidMount() {
         if (window.chrome) {
@@ -29,7 +30,6 @@ class MainContainer extends Component {
                     });
                 });
         }
-        this.scroll('#skills');
     }
     render() {
         const { isChrome, ParallaxElement } = this.state;
@@ -37,12 +37,12 @@ class MainContainer extends Component {
         return (
             <div style={{overflow: 'hidden'}}>
                 {/* isChrome && ParallaxElement */}
-                <Navbar scroll={this.scroll} />
+                <Navbar scrollToTop={this.scrollToTop} />
                 <Home />
                 <Projects />
                 <Skills />
                 <Contact />
-                <Footer />
+                <Footer scrollToTop={this.scrollToTop} />
             </div>
         );
     }

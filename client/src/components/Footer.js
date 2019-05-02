@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Jump from './styled/Jump';
+
 const FooterContainer = styled.footer`
     display: flex;
     justify-content: center;
@@ -8,6 +10,7 @@ const FooterContainer = styled.footer`
     flex-direction: column;
     border-top: 1px solid #eee;
     padding: 10px;
+    position: relative;
 `;
 
 const Copy = styled.p`
@@ -24,7 +27,25 @@ const ViewSource = styled.a`
     color: #28A4FF;
 `;
 
-const Footer = () => (
+const Circle = styled.div`
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    background: #000;
+    position: absolute;
+    top: -32.5px;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        animation: ${Jump} 1s infinite;
+    }
+`;
+
+const Footer = ({ scrollToTop }) => (
     <FooterContainer>
         <Copy>Built with<img src={window.location.origin + '/img/heart.png'} alt=" love " style={{ position: 'relative', top: '11px' }} />by Kyle Stauch &copy; {new Date().getFullYear()}</Copy>
         <ViewSource
@@ -34,6 +55,10 @@ const Footer = () => (
         >
             (view source)
         </ViewSource>
+
+        <Circle onClick={scrollToTop}>
+            <img src={window.location.origin + '/img/up-arrow.png'} alt="Scroll To Top" />
+        </Circle>
     </FooterContainer>
 );
 

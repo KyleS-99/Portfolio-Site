@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-scroll';
 
 import Jump from './styled/Jump';
 import FadeInAndOut from './styled/FadeInAndOut';
@@ -57,7 +58,7 @@ const Logo = styled.h1`
     }
 `;
 
-const Section = styled.p`
+const StyledLink = styled(Link)`
     font-size: 1.2rem;
     margin: 0 20px;
     position: relative;
@@ -190,8 +191,10 @@ class Navbar extends Component {
     closeMenu = () => {
         this.setState({ active: false });
     }
-    runScroll = (event) => {
-        this.props.scroll(event.target.dataset.target);
+    isMobile = () => {
+        if (this.state.active) {
+            this.closeMenu();
+        }
     }
     render() {
         const { active } = this.state;
@@ -204,28 +207,38 @@ class Navbar extends Component {
                     </HamburgerContainer>
 
                     <Nav active={active}>
-                        <Logo active={active}>kyle stauch</Logo>
+                        <Logo active={active} onClick={this.props.scrollToTop}>kyle stauch</Logo>
+
                         <NavLinkContainer active={active}>
-                            <Section 
-                                onClick={this.runScroll}
-                                data-target="#projects"
+                            <StyledLink 
+                                to="projects"
+                                duration={1000}
+                                offset={-100}
+                                smooth={true}
+                                onClick={this.isMobile}
                             >
                                 projects
-                            </Section>
+                            </StyledLink>
 
-                            <Section 
-                                onClick={this.runScroll}
-                                data-target="#skills"
+                            <StyledLink 
+                                to="skills"
+                                duration={1000}
+                                offset={-100}
+                                smooth={true}
+                                onClick={this.isMobile}
                             >
                                 skills
-                            </Section>
+                            </StyledLink>
 
-                            <Section 
-                                onClick={this.runScroll}
-                                data-target="#contact"
+                            <StyledLink 
+                                to="contact"
+                                duration={1000}
+                                offset={-100}
+                                smooth={true}
+                                onClick={this.isMobile}
                             >
                                 contact
-                            </Section>
+                            </StyledLink>
                             
                             <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
                                 <GithubImg src={active ? window.location.origin + '/img/github-large.png' : window.location.origin + '/img/github.png'} alt="Github" />
