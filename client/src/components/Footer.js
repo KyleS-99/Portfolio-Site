@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Jump from './styled/Jump';
+import { ButtonBlur } from './styled/ButtonAndBlur';
 
 const FooterContainer = styled.footer`
     display: flex;
@@ -28,12 +29,12 @@ const ViewSource = styled.a`
 `;
 
 const Circle = styled.div`
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
     border-radius: 100%;
     background: #000;
     position: absolute;
-    top: -32.5px;
+    top: -27.5px;
     right: 5%;
     display: flex;
     justify-content: center;
@@ -58,6 +59,7 @@ const Footer = ({ scrollToTop }) => (
 
         <Circle onClick={scrollToTop}>
             <img src={window.location.origin + '/img/up-arrow.png'} alt="Scroll To Top" />
+            <ButtonBlur style={{ position: 'absolute', bottom: '0' }}/>
         </Circle>
     </FooterContainer>
 );
