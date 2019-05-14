@@ -59,7 +59,7 @@ const Footer = ({ scrollToTop }) => (
 
         <Circle onClick={scrollToTop}>
             <img src={window.location.origin + '/img/up-arrow.png'} alt="Scroll To Top" />
-            <ButtonBlur style={{ position: 'absolute', bottom: '0' }}/>
+            <ButtonBlur style={{ position: 'absolute', bottom: '0' }} />
         </Circle>
     </FooterContainer>
 );

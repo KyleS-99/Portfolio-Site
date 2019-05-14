@@ -182,7 +182,7 @@ const Skills = (props) => (
             </SkillBox>
         </SkillsInnerContainer>
 
-        <ClickMe />
+        <ClickMe to="contact" />
     </SkillsContainer>
 );
 

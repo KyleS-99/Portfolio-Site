@@ -227,7 +227,7 @@ const Projects = () => (
             </ProjectContainer>
         </ProjectContainer>
 
-        <ClickMe />
+        <ClickMe to="skills" />
     </ProjectsContainer>
 );
 

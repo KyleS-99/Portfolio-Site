@@ -58,7 +58,7 @@ const Home = () => (
         >
             <GitHub src={window.location.origin + '/img/github-large.png'} />
         </a>
-        <ClickMe />
+        <ClickMe to="projects" />
     </HomeContainer>
 );
 
