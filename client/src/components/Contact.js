@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import SectionTitle from './styled/SectionTitle';
 import { ButtonBlur } from './styled/ButtonAndBlur';
@@ -115,13 +116,26 @@ class Contact extends Component {
         email: '',
         name: '',
         message: '',
-        hiddenInput: ''
+        hiddenInput: '',
+        errors: {},
+        formSubmitted: false
     }
     onChange = ({ target: { name, value } }) => {
         this.setState({ [name]: value })
     }
-    onSubmit = () => {
-        
+    onSubmit = (e) => {
+        e.preventDefault();
+        const { email, name, message, hiddenInput } = this.state;
+
+        if (hiddenInput === '') {
+            axios.post('/api/email', { email, name, message })
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err.response.data);
+                });
+        }
     }
     render() {
         const { email, name, message, hiddenInput } = this.state;

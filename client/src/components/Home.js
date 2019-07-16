@@ -49,7 +49,7 @@ const GitHub = styled.img`
 const Home = () => (
     <HomeContainer id="home">
         <Intro>hello, i'm kyle!</Intro>
-        <TagLine>full stack developer | open-source enthusiast | night owl</TagLine>
+        <TagLine>full stack developer | open-source enthusiast</TagLine>
         <a 
             href="https://github.com/KyleS-99" 
             target="_blank" 
