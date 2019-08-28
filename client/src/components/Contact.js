@@ -127,6 +127,7 @@ class Contact extends Component {
         e.preventDefault();
         const { email, name, message, hiddenInput } = this.state;
 
+        // Prevent bot spam
         if (hiddenInput === '') {
             axios.post('/api/email', { email, name, message })
                 .then(res => {

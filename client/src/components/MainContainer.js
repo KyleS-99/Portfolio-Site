@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { animateScroll as scroll } from 'react-scroll';
 
 import Navbar from './Navbar';
@@ -8,44 +8,35 @@ import Skills from './Skills';
 import Contact from './Contact';
 import Footer from './Footer';
 
-class MainContainer extends Component {
-    constructor() {
-        super();
+const MainContainer = () => {
+    const [isChrome, setChrome] = useState(false);
+    const [ParallaxComponent, setComponent] = useState(null);
 
-        this.state = {
-            isChrome: false,
-            ParallaxElement: null
-        };
-    }
-    scrollToTop = () => {
-        scroll.scrollToTop();
-    }
-    componentDidMount() {
+    useEffect(() => {
         if (window.chrome) {
             import('./Parallax')
                 .then(Parallax => {
-                    this.setState({
-                        isChrome: true,
-                        ParallaxElement: Parallax.default()
-                    });
+                    setChrome(true)
+                    setComponent(Parallax.default());
                 });
         }
-    }
-    render() {
-        const { isChrome, ParallaxElement } = this.state;
+    }, []);
 
-        return (
-            <div style={{overflow: 'hidden'}}>
-                {/* isChrome && ParallaxElement */}
-                <Navbar scrollToTop={this.scrollToTop} />
-                <Home />
-                <Projects />
-                <Skills />
-                <Contact />
-                <Footer scrollToTop={this.scrollToTop} />
-            </div>
-        );
+    const scrollToTop = () => {
+        scroll.scrollToTop();
     }
-}
+
+    return (
+        <div style={{overflow: 'hidden'}}>
+            {/* isChrome && ParallaxComponent */}
+            <Navbar scrollToTop={scrollToTop} />
+            <Home />
+            <Projects />
+            <Skills />
+            <Contact />
+            <Footer scrollToTop={scrollToTop} />
+        </div>
+    );
+};
 
 export default MainContainer;
