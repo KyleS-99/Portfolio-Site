@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-scroll';
 
@@ -181,74 +181,72 @@ const Hamburger = styled.div`
     }
 `;
 
-class Navbar extends Component {
-    state = {
-        active: false
+const Navbar = (props) => {
+    const [active, toggleActive] = useState(false);
+
+    const toggleMenu = () => {
+        toggleActive(!active);
     }
-    toggleMenu = () => {
-        this.setState((prevState) => ({ active: !prevState.active }));
+
+    const closeMenu = () => {
+        toggleActive(false);
     }
-    closeMenu = () => {
-        this.setState({ active: false });
-    }
-    isMobile = () => {
-        if (this.state.active) {
-            this.closeMenu();
+
+    const isMobile = () => {
+        if (active) {
+            closeMenu();
         }
     }
-    render() {
-        const { active } = this.state;
 
-        return (
-            <React.Fragment>
-                <Header active={active}>
-                    <HamburgerContainer active={active}>
-                        <Hamburger active={active} onClick={this.toggleMenu} />
-                    </HamburgerContainer>
+    return (
+        <React.Fragment>
+            <Header active={active}>
+                <HamburgerContainer active={active}>
+                    <Hamburger active={active} onClick={toggleMenu} />
+                </HamburgerContainer>
 
-                    <Nav active={active}>
-                        <Logo active={active} onClick={this.props.scrollToTop}>kyle stauch</Logo>
+                <Nav active={active}>
+                    <Logo active={active} onClick={props.scrollToTop}>kyle stauch</Logo>
 
-                        <NavLinkContainer active={active}>
-                            <StyledLink 
-                                to="projects"
-                                duration={1000}
-                                offset={-100}
-                                smooth={true}
-                                onClick={this.isMobile}
-                            >
-                                projects
-                            </StyledLink>
+                    <NavLinkContainer active={active}>
+                        <StyledLink 
+                            to="projects"
+                            duration={1000}
+                            offset={-100}
+                            smooth={true}
+                            onClick={isMobile}
+                        >
+                            projects
+                        </StyledLink>
 
-                            <StyledLink 
-                                to="skills"
-                                duration={1000}
-                                offset={-100}
-                                smooth={true}
-                                onClick={this.isMobile}
-                            >
-                                skills
-                            </StyledLink>
+                        <StyledLink 
+                            to="skills"
+                            duration={1000}
+                            offset={-100}
+                            smooth={true}
+                            onClick={isMobile}
+                        >
+                            skills
+                        </StyledLink>
 
-                            <StyledLink 
-                                to="contact"
-                                duration={1000}
-                                offset={-100}
-                                smooth={true}
-                                onClick={this.isMobile}
-                            >
-                                contact
-                            </StyledLink>
-                            
-                            <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
-                                <GithubImg src={active ? window.location.origin + '/img/github-large.png' : window.location.origin + '/img/github.png'} alt="Github" />
-                            </a>
-                        </NavLinkContainer>
-                    </Nav>
-                </Header>
-            </React.Fragment>
-        );
-    }
-}
+                        <StyledLink 
+                            to="contact"
+                            duration={1000}
+                            offset={-100}
+                            smooth={true}
+                            onClick={isMobile}
+                        >
+                            contact
+                        </StyledLink>
+                        
+                        <a href="https://github.com/KyleS-99" target="_blank" rel="noopener noreferrer">
+                            <GithubImg src={active ? window.location.origin + '/img/github-large.png' : window.location.origin + '/img/github.png'} alt="Github" />
+                        </a>
+                    </NavLinkContainer>
+                </Nav>
+            </Header>
+        </React.Fragment>
+    );
+};
 
 export default Navbar;
