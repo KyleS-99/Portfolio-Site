@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import SectionTitle from './styled/SectionTitle';
 import { ButtonBlur } from './styled/ButtonAndBlur';
+import Error from './styled/Error';
 
 const ContactContainer = styled.div`
     width: 100%;
@@ -68,6 +69,8 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
     padding: 10px;
+
+    ${props => props.error !== undefined ? `border: 1px solid #cc0000 !important;` : ''}
 `;
 
 const TextArea = styled.textarea`
@@ -75,6 +78,8 @@ const TextArea = styled.textarea`
     box-sizing: border-box;
     padding: 10px;
     resize: vertical;
+
+    ${props => props.error !== undefined ? `border: 1px solid #cc0000 !important;` : ''}
 `;
 
 const Label = styled.label`
@@ -133,10 +138,10 @@ const Contact = () => {
         if (hiddenInput === '') {
             axios.post('/api/email', { email, name, message })
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                 })
                 .catch(err => {
-                    console.log(err.response.data);
+                    setErrors(err.response.data);
                 });
         }
     }
@@ -159,7 +164,11 @@ const Contact = () => {
                                     type="text"
                                     name="name"
                                     id="name"
+                                    error={errors.name}
                                 />
+                                {
+                                    errors.name && <Error error={errors.name} />
+                                }
                             </LabelContainer>
 
                             <LabelContainer>
@@ -171,7 +180,11 @@ const Contact = () => {
                                     type="email"
                                     name="email"
                                     id="email"
+                                    error={errors.email}
                                 />
+                                {
+                                    errors.email && <Error error={errors.email} />
+                                }
                             </LabelContainer>
                         
                             <Input 
@@ -194,7 +207,11 @@ const Contact = () => {
                                 name="message" 
                                 id="message"
                                 rows="11"
+                                error={errors.message}
                             />
+                            {
+                                errors.message && <Error error={errors.message} />
+                            }
                         </LabelContainer>
                     </div>
 
