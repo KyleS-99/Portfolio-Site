@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -111,21 +111,23 @@ const Submit = styled.button`
     }
 `;
 
-class Contact extends Component {
-    state = {
+const Contact = () => {
+    const [inputData, setInputField] = useState({ 
         email: '',
         name: '',
         message: '',
-        hiddenInput: '',
-        errors: {},
-        formSubmitted: false
+        hiddenInput: ''
+    });
+    const [errors, setErrors] = useState({});
+    const [formSubmitted, setSubmittedStatus] = useState(false);
+
+    const onChange = ({ target: { name, value} }) => {
+        setInputField({ ...inputData, [name]: value });
     }
-    onChange = ({ target: { name, value } }) => {
-        this.setState({ [name]: value })
-    }
-    onSubmit = (e) => {
+
+    const onSubmit = (e) => {
         e.preventDefault();
-        const { email, name, message, hiddenInput } = this.state;
+        const { email, name, message, hiddenInput } = inputData;
 
         // Prevent bot spam
         if (hiddenInput === '') {
@@ -138,74 +140,72 @@ class Contact extends Component {
                 });
         }
     }
-    render() {
-        const { email, name, message, hiddenInput } = this.state;
+    
 
-        return (
-            <ContactContainer id="contact">
-                <SectionTitle text="Contact" />
+    return (
+        <ContactContainer id="contact">
+            <SectionTitle text="Contact" />
 
-                <FormContainer>
-                    <Form autoComplete="off" onSubmit={this.onSubmit}>
-                        <div style={{ width: '100%' }}>
-                            <InputContainer>
-                                <LabelContainer>
-                                    <Label htmlFor="name">name</Label>
-                                    <Input 
-                                        onChange={this.onChange} 
-                                        placeholder="Whats your mom call you?" 
-                                        value={name} 
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                    />
-                                </LabelContainer>
-
-                                <LabelContainer>
-                                    <Label htmlFor="email">email</Label>
-                                    <Input 
-                                        onChange={this.onChange} 
-                                        placeholder="Where can I email you back?" 
-                                        value={email} 
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                    />
-                                </LabelContainer>
-                            
-                                <Input 
-                                    onChange={this.onChange} 
-                                    style={{ display: 'none' }} 
-                                    value={hiddenInput} 
-                                    type="text"
-                                    name="hiddenInput"
-                                />
-                            </InputContainer>
-                        </div>
-                        
-                        <div style={{ width: '100%' }}>
+            <FormContainer>
+                <Form autoComplete="off" onSubmit={onSubmit}>
+                    <div style={{ width: '100%' }}>
+                        <InputContainer>
                             <LabelContainer>
-                                <Label htmlFor="message">message</Label>
-                                <TextArea 
-                                    onChange={this.onChange} 
-                                    placeholder="What's on your mind?" 
-                                    value={message} 
-                                    name="message" 
-                                    id="message"
-                                    rows="11"
+                                <Label htmlFor="name">name</Label>
+                                <Input 
+                                    onChange={onChange} 
+                                    placeholder="Whats your mom call you?" 
+                                    value={inputData.name} 
+                                    type="text"
+                                    name="name"
+                                    id="name"
                                 />
                             </LabelContainer>
-                        </div>
 
-                        <Submit type="submit">
-                            send
-                            <ButtonBlur />
-                        </Submit>
-                    </Form>
-                </FormContainer>
-            </ContactContainer>
-        );
-    }
+                            <LabelContainer>
+                                <Label htmlFor="email">email</Label>
+                                <Input 
+                                    onChange={onChange} 
+                                    placeholder="Where can I email you back?" 
+                                    value={inputData.email} 
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                />
+                            </LabelContainer>
+                        
+                            <Input 
+                                onChange={onChange} 
+                                style={{ display: 'none' }} 
+                                value={inputData.hiddenInput} 
+                                type="text"
+                                name="hiddenInput"
+                            />
+                        </InputContainer>
+                    </div>
+                    
+                    <div style={{ width: '100%' }}>
+                        <LabelContainer>
+                            <Label htmlFor="message">message</Label>
+                            <TextArea 
+                                onChange={onChange} 
+                                placeholder="What's on your mind?" 
+                                value={inputData.message} 
+                                name="message" 
+                                id="message"
+                                rows="11"
+                            />
+                        </LabelContainer>
+                    </div>
+
+                    <Submit type="submit">
+                        send
+                        <ButtonBlur />
+                    </Submit>
+                </Form>
+            </FormContainer>
+        </ContactContainer>
+    );
 }
 
 export default Contact;

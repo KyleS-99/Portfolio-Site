@@ -92,7 +92,7 @@ const Skill = styled.p`
     font-size: 20px;
 `;
 
-const Skills = (props) => (
+const Skills = () => (
     <SkillsContainer id="skills">
         <SectionTitle text="Skills" />
 
