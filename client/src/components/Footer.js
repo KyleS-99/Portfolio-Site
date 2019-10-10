@@ -54,7 +54,7 @@ const Footer = ({ scrollToTop }) => (
             target="_blank" 
             rel="noopener noreferrer"
         >
-            (view source)
+            &lt;view source /&gt;
         </ViewSource>
 
         <Circle onClick={scrollToTop}>

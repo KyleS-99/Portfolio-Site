@@ -206,7 +206,7 @@ const Navbar = (props) => {
                 </HamburgerContainer>
 
                 <Nav active={active}>
-                    <Logo active={active} onClick={props.scrollToTop}>kyle stauch</Logo>
+                    <Logo active={active} onClick={props.scrollToTop}>&lt;kyle stauch /&gt;</Logo>
 
                     <NavLinkContainer active={active}>
                         <StyledLink 
