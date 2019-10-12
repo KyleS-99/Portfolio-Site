@@ -138,7 +138,13 @@ const Contact = () => {
         if (hiddenInput === '') {
             axios.post('/api/email', { email, name, message })
                 .then(res => {
-                    // console.log(res.data);
+                    setSubmittedStatus(true);
+                    setInputField({
+                        email: '',
+                        name: '',
+                        message: '',
+                        hiddenInput: ''
+                    });
                 })
                 .catch(err => {
                     setErrors(err.response.data);
@@ -159,7 +165,7 @@ const Contact = () => {
                                 <Label htmlFor="name">name</Label>
                                 <Input 
                                     onChange={onChange} 
-                                    placeholder="Whats your mom call you?" 
+                                    placeholder="Jon Snow" 
                                     value={inputData.name} 
                                     type="text"
                                     name="name"
