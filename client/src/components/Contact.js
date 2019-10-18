@@ -44,7 +44,6 @@ const LabelContainer = styled.div`
         outline: none;
         border: 1px solid #eee;
         font-size: 18px;
-        box-shadow: 0px 20px 80px -1px rgba(0,0,0,0.05);
     }
 `;
 
@@ -145,6 +144,7 @@ const Contact = () => {
                         message: '',
                         hiddenInput: ''
                     });
+                    setErrors({});
                 })
                 .catch(err => {
                     setErrors(err.response.data);

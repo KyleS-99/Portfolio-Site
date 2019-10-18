@@ -27,8 +27,8 @@ module.exports = {
             errors.email = 'Email field is required';
         }
 
-        if (!Validator.isLength(message, {  min: 20, max: 400 })) {
-            errors.message = 'Message field must be between 20 and 400 characters';
+        if (!Validator.isLength(message, {  min: 20, max: 1000 })) {
+            errors.message = 'Message field must be between 20 and 1000 characters';
         }
 
         if (isEmpty(message)) {
