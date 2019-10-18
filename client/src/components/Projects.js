@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import SectionTitle from './styled/SectionTitle';
 import ClickMe from './styled/ClickMe';
-import { Button, ButtonBlur } from './styled/ButtonAndBlur';
+import { Button } from './styled/Button';
 
 const ProjectsContainer = styled.div`
     width: 100%;
@@ -157,7 +157,6 @@ const Projects = () => (
                                     alt="" 
                                     style={{ position: 'relative', top: '6px', left: '5px' }} 
                                 />
-                                <ButtonBlur />
                             </Button>
 
                             <Button 
@@ -173,7 +172,6 @@ const Projects = () => (
                                     style={{ position: 'relative', top: '4px', right: '5px'}} 
                                 /> 
                                 Code
-                                <ButtonBlur />
                             </Button>
                         </ButtonContainer>
                     </Info>
@@ -203,7 +201,6 @@ const Projects = () => (
                                     alt="" 
                                     style={{ position: 'relative', top: '6px', left: '5px' }} 
                                 />
-                                <ButtonBlur />
                             </Button>
 
                             <Button 
@@ -219,7 +216,6 @@ const Projects = () => (
                                     style={{ position: 'relative', top: '4px', right: '5px'}} 
                                 /> 
                                 Code
-                                <ButtonBlur />
                             </Button>
                         </ButtonContainer>
                     </Info>

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import SectionTitle from './styled/SectionTitle';
-import { ButtonBlur } from './styled/ButtonAndBlur';
 import Error from './styled/Error';
+import Spinner from './styled/Spinner';
 
 const ContactContainer = styled.div`
     width: 100%;
@@ -23,6 +23,7 @@ const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    ${props => props.submitted && `display: none;`}
 
     & > div + div {
         margin-top: 37px;
@@ -103,6 +104,7 @@ const Submit = styled.button`
     line-height: 40px;
     font-size: 1.1rem;
     margin-top: 3rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
 
     &:hover {
         cursor: pointer;
@@ -136,7 +138,7 @@ const Contact = () => {
         // Prevent bot spam
         if (hiddenInput === '') {
             axios.post('/api/email', { email, name, message })
-                .then(res => {
+                .then(() => {
                     setSubmittedStatus(true);
                     setInputField({
                         email: '',
@@ -151,14 +153,17 @@ const Contact = () => {
                 });
         }
     }
-    
 
     return (
         <ContactContainer id="contact">
             <SectionTitle text="Contact" />
 
             <FormContainer>
-                <Form autoComplete="off" onSubmit={onSubmit}>
+                <Form 
+                    autoComplete="off" 
+                    onSubmit={onSubmit}
+                    submitted={formSubmitted}
+                >
                     <div style={{ width: '100%' }}>
                         <InputContainer>
                             <LabelContainer>
@@ -181,7 +186,7 @@ const Contact = () => {
                                 <Label htmlFor="email">email</Label>
                                 <Input 
                                     onChange={onChange} 
-                                    placeholder="Where can I email you back?" 
+                                    placeholder="jon@snow.com" 
                                     value={inputData.email} 
                                     type="email"
                                     name="email"
@@ -223,9 +228,10 @@ const Contact = () => {
 
                     <Submit type="submit">
                         send
-                        <ButtonBlur />
                     </Submit>
                 </Form>
+
+                { formSubmitted && <Spinner /> }
             </FormContainer>
         </ContactContainer>
     );

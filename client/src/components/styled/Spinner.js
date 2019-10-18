@@ -37,11 +37,20 @@ const SpinnerContainer = styled.div`
     }
 `;
 
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+`;
+
 const Spinner = () => (
-    <SpinnerContainer>
-        <div />
-        <div />
-    </SpinnerContainer>
+    <Container>
+        <SpinnerContainer>
+            <div />
+            <div />
+        </SpinnerContainer>
+    </Container>
 );
 
 export default Spinner;

@@ -15,6 +15,7 @@ export const Button = styled.a`
     line-height: 40px;
     font-size: 1.1rem;
     z-index: 5;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
 
     &:hover {
         cursor: pointer;
@@ -25,14 +26,4 @@ export const Button = styled.a`
         transform: translateY(4px);
         transform: scale(0.9);
     }
-`;
-
-export const ButtonBlur = styled.div`
-    background: #000;
-    width: 150px;
-    height: 40px;
-    position: relative;
-    filter: blur(25px);
-    margin-top: -20px;
-    opacity: 0.3;
 `;
