@@ -31,7 +31,7 @@ const SkillBox = styled.div`
     min-height: 400px;
     background: #fff;
     border: 1px solid #eee;
-    box-shadow: 0px 28px 102px -1px rgba(0,0,0,0.05);
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
     transition: 0.2s;
     margin: 2%;
     padding-bottom: 2rem;
