@@ -213,7 +213,7 @@ const Contact = () => {
                             <Label htmlFor="message">message</Label>
                             <TextArea 
                                 onChange={onChange} 
-                                placeholder="What's on your mind?" 
+                                placeholder="Winter is coming... Hurry send your fastest raven!" 
                                 value={inputData.message} 
                                 name="message" 
                                 id="message"
