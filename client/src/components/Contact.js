@@ -5,6 +5,7 @@ import axios from 'axios';
 import SectionTitle from './styled/SectionTitle';
 import Error from './styled/Error';
 import Spinner from './styled/Spinner';
+import useInput from './hooks/useInput';
 
 const ContactContainer = styled.div`
     width: 100%;
@@ -118,34 +119,25 @@ const Submit = styled.button`
 `;
 
 const Contact = () => {
-    const [inputData, setInputField] = useState({ 
-        email: '',
-        name: '',
-        message: '',
-        hiddenInput: ''
-    });
+    const [email, bindEmail, resetEmail] = useInput('');
+    const [name, bindName, resetName] = useInput('');
+    const [message, bindMessage, resetMessage] = useInput('');
+    const [hiddenInput, bindHiddenInput, resetHiddenInput] = useInput('');
     const [errors, setErrors] = useState({});
-    const [formSubmitted, setSubmittedStatus] = useState(false);
-
-    const onChange = ({ target: { name, value} }) => {
-        setInputField({ ...inputData, [name]: value });
-    }
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const { email, name, message, hiddenInput } = inputData;
 
         // Prevent bot spam
         if (hiddenInput === '') {
             axios.post('/api/email', { email, name, message })
                 .then(() => {
-                    setSubmittedStatus(true);
-                    setInputField({
-                        email: '',
-                        name: '',
-                        message: '',
-                        hiddenInput: ''
-                    });
+                    setFormSubmitted(true);
+                    resetEmail();
+                    resetName();
+                    resetMessage();
+                    resetHiddenInput();
                     setErrors({});
                 })
                 .catch(err => {
@@ -169,9 +161,8 @@ const Contact = () => {
                             <LabelContainer>
                                 <Label htmlFor="name">name</Label>
                                 <Input 
-                                    onChange={onChange} 
+                                    {...bindName}
                                     placeholder="Jon Snow" 
-                                    value={inputData.name} 
                                     type="text"
                                     name="name"
                                     id="name"
@@ -185,9 +176,8 @@ const Contact = () => {
                             <LabelContainer>
                                 <Label htmlFor="email">email</Label>
                                 <Input 
-                                    onChange={onChange} 
+                                    {...bindEmail}
                                     placeholder="jon@snow.com" 
-                                    value={inputData.email} 
                                     type="email"
                                     name="email"
                                     id="email"
@@ -199,9 +189,8 @@ const Contact = () => {
                             </LabelContainer>
                         
                             <Input 
-                                onChange={onChange} 
+                                {...bindHiddenInput}
                                 style={{ display: 'none' }} 
-                                value={inputData.hiddenInput} 
                                 type="text"
                                 name="hiddenInput"
                             />
@@ -212,9 +201,8 @@ const Contact = () => {
                         <LabelContainer>
                             <Label htmlFor="message">message</Label>
                             <TextArea 
-                                onChange={onChange} 
+                                {...bindMessage}
                                 placeholder="Winter is coming... Hurry send your fastest raven!" 
-                                value={inputData.message} 
                                 name="message" 
                                 id="message"
                                 rows="11"
