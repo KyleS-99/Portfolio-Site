@@ -12,13 +12,13 @@ const ContactContainer = styled.div`
 `;
 
 const Contact = () => {
-    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState(true);
 
     return (
         <ContactContainer id="contact">
             <SectionTitle text="Contact" />
 
-            { formSubmitted ? <GoBack /> : <Form formSubmitted={formSubmitted} setFormSubmitted={setFormSubmitted} /> }
+            { formSubmitted ? <GoBack setFormSubmitted={setFormSubmitted} /> : <Form formSubmitted={formSubmitted} setFormSubmitted={setFormSubmitted} /> }
         </ContactContainer>
     );
 }

@@ -1,10 +1,55 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GoBack = () => {
+import { Button } from './styled/Button';
+
+const Container = styled.div`
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+`;
+
+const MessageContainer = styled.div`
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Raven = styled.h1`
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 55px;
+`;
+
+
+
+const GoBack = (props) => {
+
+    const returnToForm = (e) => {
+        e.preventDefault();
+
+        props.setFormSubmitted(false);
+    }
+
     return ( 
-        <div></div>
-     );
+        <Container>
+            <MessageContainer>
+                <Raven>Raven has been sent!</Raven>
+
+                <Button 
+                    href="https://real-time-racer.herokuapp.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={returnToForm}
+                >
+                    Return
+                </Button>
+            </MessageContainer>
+        </Container>
+    );
 };
  
 export default GoBack;
