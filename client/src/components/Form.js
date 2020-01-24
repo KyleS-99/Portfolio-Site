@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import Error from './styled/Error';
 import Spinner from './styled/Spinner';
-import useInput from './hooks/useInput';
 
 const FormContainer = styled.div`
     width: 80%;
@@ -112,25 +111,16 @@ const Submit = styled.button`
 `;
 
 const Form = (props) => {
-    const [email, bindEmail, resetEmail] = useInput('');
-    const [name, bindName, resetName] = useInput('');
-    const [message, bindMessage, resetMessage] = useInput('');
-    const [hiddenInput, bindHiddenInput, resetHiddenInput] = useInput('');
     const [errors, setErrors] = useState({});
 
     const onSubmit = (e) => {
         e.preventDefault();
 
         // Prevent bot spam
-        if (hiddenInput === '') {
-            axios.post('/api/email', { email, name, message })
+        if (props.hiddenInput === '') {
+            axios.post('/api/email', { email: props.email, name: props.name, message: props.message })
                 .then(() => {
-                    this.props.setFormSubmitted(true);
-                    resetEmail();
-                    resetName();
-                    resetMessage();
-                    resetHiddenInput();
-                    setErrors({});
+                    props.setFormSubmitted(true);
                 })
                 .catch(err => {
                     setErrors(err.response.data);
@@ -150,7 +140,7 @@ const Form = (props) => {
                         <LabelContainer>
                             <Label htmlFor="name">name</Label>
                             <Input 
-                                {...bindName}
+                                {...props.bindName}
                                 placeholder="Jon Snow" 
                                 type="text"
                                 name="name"
@@ -165,7 +155,7 @@ const Form = (props) => {
                         <LabelContainer>
                             <Label htmlFor="email">email</Label>
                             <Input 
-                                {...bindEmail}
+                                {...props.bindEmail}
                                 placeholder="jon@snow.com" 
                                 type="email"
                                 name="email"
@@ -178,7 +168,7 @@ const Form = (props) => {
                         </LabelContainer>
                     
                         <Input 
-                            {...bindHiddenInput}
+                            {...props.bindHiddenInput}
                             style={{ display: 'none' }} 
                             type="text"
                             name="hiddenInput"
@@ -190,7 +180,7 @@ const Form = (props) => {
                     <LabelContainer>
                         <Label htmlFor="message">message</Label>
                         <TextArea 
-                            {...bindMessage}
+                            {...props.bindMessage}
                             placeholder="Winter is coming... Hurry send your fastest raven!" 
                             name="message" 
                             id="message"
