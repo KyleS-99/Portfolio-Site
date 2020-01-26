@@ -23,7 +23,7 @@ module.exports = {
 
         transporter.sendMail(mailOptions)
             .then(() => {
-                res.status(200).json({ success: true });
+                res.json({ success: true });
             })
             .catch(() => {
                 res.status(400).json({ error: `Unable to send email. To do so directly, email me at ${to}` });
