@@ -13,7 +13,7 @@ const ContactContainer = styled.div`
 `;
 
 const Contact = () => {
-    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState(true);
     const [email, bindEmail, resetEmail] = useInput();
     const [name, bindName, resetName] = useInput();
     const [message, bindMessage, resetMessage] = useInput();
