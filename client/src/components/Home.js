@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ClickMe from './styled/ClickMe';
 import Jump from './styled/Jump';
+import { slideIn } from './animations/animations';
 
 const HomeContainer = styled.div`
     display: flex;
@@ -12,6 +13,7 @@ const HomeContainer = styled.div`
     align-items: center;
     flex-direction: column;
     position: relative;
+    animation: 1s ${slideIn};
 
     & * {
         text-transform: capitalize;

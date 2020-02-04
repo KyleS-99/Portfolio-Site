@@ -194,7 +194,7 @@ const Form = (props) => {
                 </div>
 
                 <Submit type="submit">
-                    send raven
+                    send
                 </Submit>
             </ContactForm>
 
