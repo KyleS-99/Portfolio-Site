@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import ClickMe from './styled/ClickMe';
 import Jump from './styled/Jump';
-import { slideIn } from './animations/animations';
+import { slideInLeft } from './animations/animations';
 
 const HomeContainer = styled.div`
     display: flex;
@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
     align-items: center;
     flex-direction: column;
     position: relative;
-    animation: 1s ${slideIn};
+    animation: 1s ${slideInLeft};
 
     & * {
         text-transform: capitalize;
@@ -48,7 +48,7 @@ const GitHub = styled.img`
 `;
 
 
-const Home = () => (
+const Home = (props) => (
     <HomeContainer id="home">
         <Intro>hello, i'm kyle!</Intro>
         <TagLine>full stack developer | open-source enthusiast</TagLine>

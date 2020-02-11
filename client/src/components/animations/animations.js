@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-export const slideIn = keyframes`
+export const slideInLeft = keyframes`
     0% {
         opacity: 0;
         right: 400px;
