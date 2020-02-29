@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Button } from './styled/Button';
+import { slideUp } from './animations/animations';
 
 const Container = styled.div`
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    animation: ${slideUp} 1s;
 `;
 
 const MessageContainer = styled.div`
@@ -24,8 +27,6 @@ const Raven = styled.h1`
     margin-bottom: 55px;
 `;
 
-
-
 const GoBack = (props) => {
 
     const returnToForm = (e) => {
@@ -40,9 +41,7 @@ const GoBack = (props) => {
                 <Raven>Raven has been sent!</Raven>
 
                 <Button 
-                    href="https://real-time-racer.herokuapp.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="#" 
                     onClick={returnToForm}
                 >
                     Return

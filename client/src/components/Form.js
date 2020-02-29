@@ -4,11 +4,14 @@ import axios from 'axios';
 
 import Error from './styled/Error';
 import Spinner from './styled/Spinner';
+import { slideDown } from './animations/animations';
 
 const FormContainer = styled.div`
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
+    animation: ${slideDown} 1s;
+    position: relative;
 `;
 
 const ContactForm = styled.form`

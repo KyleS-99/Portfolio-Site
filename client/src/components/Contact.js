@@ -9,11 +9,10 @@ import useInput from './hooks/useInput';
 const ContactContainer = styled.div`
     width: 100%;
     padding-bottom: 6.5rem;
-    position: relative;
 `;
 
 const Contact = (props) => {
-    const [formSubmitted, setFormSubmitted] = useState(true);
+    const [formSubmitted, setFormSubmitted] = useState(false);
     const [email, bindEmail, resetEmail] = useInput();
     const [name, bindName, resetName] = useInput();
     const [message, bindMessage, resetMessage] = useInput();
