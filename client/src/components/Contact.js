@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 import SectionTitle from './styled/SectionTitle';
@@ -18,7 +18,6 @@ const Contact = (props) => {
     const [name, bindName, resetName] = useInput();
     const [message, bindMessage, resetMessage] = useInput();
     const [hiddenInput, bindHiddenInput, resetHiddenInput] = useInput();
-    const contactRef = useRef(null);
 
     useEffect(() => {
         resetEmail();
@@ -28,12 +27,8 @@ const Contact = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [formSubmitted]);
 
-    useEffect(() => {
-        props.setContactYPos(props.detectYPos(contactRef));
-    }, []);
-
     return (
-        <ContactContainer id="contact" ref={contactRef}>
+        <ContactContainer id="contact">
             <SectionTitle text="Contact" />
 
             { formSubmitted ? 

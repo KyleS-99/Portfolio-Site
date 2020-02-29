@@ -11,9 +11,6 @@ import Footer from './Footer';
 const MainContainer = () => {
     const [isChrome, setChrome] = useState(false);
     const [ParallaxComponent, setComponent] = useState(null);
-    const [projectsYPos, setProjectsYPos] = useState(0);
-    const [skillsYPos, setSkillsYPos] = useState(0);
-    const [contactYPos, setContactYPos] = useState(0);
 
     useEffect(() => {
         if (window.chrome) {
@@ -23,17 +20,7 @@ const MainContainer = () => {
                     setComponent(Parallax.default());
                 });
         }
-
-        window.addEventListener('scroll', onScroll);
     }, []);
-
-    const detectYPos = (ref) => {
-        return ref.current.getBoundingClientRect().top;
-    }
-
-    const onScroll = () => {
-        
-    }
 
     const scrollToTop = () => {
         scroll.scrollToTop();
@@ -44,9 +31,9 @@ const MainContainer = () => {
             {/* isChrome && ParallaxComponent */}
             <Navbar scrollToTop={scrollToTop} />
             <Home />
-            <Projects detectYPos={detectYPos} setProjectsYPos={setProjectsYPos} />
-            <Skills detectYPos={detectYPos} setSkillsYPos={setSkillsYPos} />
-            <Contact detectYPos={detectYPos} detectYPos={detectYPos} setContactYPos={setContactYPos} />
+            <Projects />
+            <Skills />
+            <Contact />
             <Footer scrollToTop={scrollToTop} />
         </div>
     );
